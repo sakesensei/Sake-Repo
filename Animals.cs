@@ -5,30 +5,45 @@ namespace Animals
 	class Program
 	{
 		//Define the Base Class
-		class Animal
+		public abstract class Animal
 		{
-			public int Legs { get; set; }
-			public int Age { get; set; }
+			private int _legs;
+			private int _age;
+
+			public int Legs
+			{
+				get { return _age; }
+				set { _age = value; }
+			}
+
+			public int Age
+			{ get; set; }
 		}
 		
 		//Define the Derivate Classes
 		//Dog
-		class Dog : Animal
+		public class Dog : Animal
 		{
-			public Dog() //Constructor
+			private string _furcolor;
+			public string FurColor
 			{
-				public string FurColor { get; set;}
-				
+				get { return _furcolor; }
+				set { _furcolor = value; }
+			}
+			//Constructor
+			public Dog()
+			{
 				Legs = 4;
 				Console.WriteLine("This is dog!");
 			}
-			~Dog() //Destructor
+			//Destructor
+			~Dog()
 			{
 				Console.WriteLine("Dog is gone..");
 			}
 		}
 		
-		class Cat : Animal
+		public class Cat : Animal
 		{
 			public Cat()
 			{
@@ -43,7 +58,7 @@ namespace Animals
 	
 	static void main(string[] args)
 	{
-		var string myFur;
+		string myFur;
 		myDog = new Dog();
 		Console.WriteLine("What color is the Dog's fur?");
 		myFur = Console.ReadLine();
